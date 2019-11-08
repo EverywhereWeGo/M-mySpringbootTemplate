@@ -51,3 +51,4 @@
 2019-11-02 00:30:36.346 INFO  org.apache.tomcat.util.net.NioSelectorPool - Using a shared selector for servlet write/read
 2019-11-02 00:30:36.354 INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8093 (http) with context path ''
 2019-11-02 00:30:36.356 INFO  com.WebappWechatApplication - Started WebappWechatApplication in 1.735 seconds (JVM running for 2.235)
+2019-11-02 00:37:56.862 INFO  org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor - Shutting down ExecutorService 'applicationTaskExecutor'
