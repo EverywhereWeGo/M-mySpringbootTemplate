@@ -10,13 +10,15 @@
 
 
     <parent>
+
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.1.1.RELEASE</version>
     </parent>
 
     <properties>
-
+        <outputDirectory>${project.build.directory}/PACKAGE/${project.name}</outputDirectory>
+        <mainclass>com.WebappWechatApplication</mainclass>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
@@ -114,7 +116,7 @@
                             <!-- 生成的manifest中classpath的前缀，因为要把第三方jar放到lib目录下，所以classpath的前缀是lib/ -->
                             <classpathPrefix>lib/</classpathPrefix>
                             <!-- 应用的main class -->
-                            <mainClass>com.WebappWechatApplication</mainClass>
+                            <mainClass>${mainclass}</mainClass>
                         </manifest>
                         <manifestEntries>
                             <!--将资源文件目录添加到classpath中，打包后运行项目时则会在该目录下加载配置文件-->
@@ -130,7 +132,7 @@
                         <exclude>/*.properties</exclude>
                     </excludes>
                     <outputDirectory>
-                        ${project.build.directory}/PACKAGE/${project.name}
+                        ${outputDirectory}
                     </outputDirectory>
                 </configuration>
             </plugin>
@@ -147,7 +149,7 @@
                             <goal>copy-dependencies</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.build.directory}/PACKAGE/${project.name}/lib</outputDirectory>
+                            <outputDirectory>${outputDirectory}/lib</outputDirectory>
                         </configuration>
                     </execution>
                 </executions>
@@ -169,7 +171,7 @@
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.build.directory}/PACKAGE/${project.name}/config</outputDirectory>
+                            <outputDirectory>${outputDirectory}/config</outputDirectory>
                             <resources>
                                 <resource>
                                     <directory>${basedir}/src/main/resources/</directory>
@@ -189,7 +191,7 @@
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.build.directory}/PACKAGE/${project.name}/bin</outputDirectory>
+                            <outputDirectory>${outputDirectory}/bin</outputDirectory>
                             <resources>
                                 <resource>
                                     <directory>${basedir}/01.terminal/remote</directory>
